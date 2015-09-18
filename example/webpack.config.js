@@ -1,3 +1,6 @@
+var path = require("path");
+var webpack = require("webpack");
+
 module.exports = {
   entry: {
     global: './src/scripts/global.coffee',
@@ -19,9 +22,15 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    // use the main field from the bower.json file
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+    )
+  ],
   resolve: {
-    // Add bower_components to the list of directories to be searched for modules:
-    modulesDirectories: ["web_modules", "node_modules", "bower_components", "src/styles"],
+    // Search in bower_components too:
+    root: [path.join(__dirname, "bower_components"), path.join(__dirname, "src/styles")],
     // Add .coffee to the list of extensions that should be used to resolve modules:
     extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee"]
   }
