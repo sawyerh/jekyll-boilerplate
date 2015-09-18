@@ -1,10 +1,7 @@
 {
-  "name": "webpack-test",
+  "name": "Assets-Workflow",
   "version": "0.0.0",
-  "authors": [
-    "Sawyer Hollenshead <s.hollenshead@gmail.com>"
-  ],
-  "license": "MIT",
+  "authors": ["Sawyer Hollenshead"],
   "private": true,
   "ignore": [
     "**/.*",
@@ -14,7 +11,6 @@
     "tests"
   ],
   "dependencies": {
-    "dropzone": "~4.0.1",
     "jquery": "~2.1.4"
   }
 }

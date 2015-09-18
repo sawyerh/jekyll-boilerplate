@@ -50,9 +50,9 @@
 
 	__webpack_require__(6)();
 
-	console.log(componentName);
+	console.log("Hello from global.coffee");
 
-	console.log("Hello world, this is coffee that's being watched with --watch");
+	console.log("window.componentName = " + componentName);
 
 
 /***/ },
@@ -9309,16 +9309,12 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var name;
-
 	__webpack_require__(3);
 
-	name = 'Component 1';
-
-	window.componentName = name;
+	window.componentName = 'Component';
 
 	module.exports = function() {
-	  return console.log('Hello from ' + name);
+	  return console.log('Hello from component.coffee');
 	};
 
 

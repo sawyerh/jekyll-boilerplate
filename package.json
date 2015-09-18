@@ -1,13 +1,17 @@
 {
-  "name": "webpack-test",
+  "name": "Assets-Workflow",
   "version": "1.0.0",
   "description": "",
-  "author": "",
+  "author": "Sawyer Hollenshead",
   "devDependencies": {
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.10.0",
+    "css-loader": "^0.18.0",
     "expose-loader": "^0.7.0",
+    "node-sass": "^3.3.3",
+    "sass-loader": "^2.0.1",
     "script-loader": "^0.6.1",
+    "style-loader": "^0.12.4",
     "webpack": "^1.12.2"
   }
 }
