@@ -1,13 +1,15 @@
 var path = require("path");
 var webpack = require("webpack");
 
+// This is pulled into Gruntfile.js however can be used on its own using just webpack:
 module.exports = {
   entry: {
     global: './src/scripts/global.coffee',
     item: './src/scripts/item.coffee'
   },
   output: {
-    path: './dist',
+    path: './dist/scripts',
+    // Take each entry above and create a file named based on its key:
     filename: '[name].js'
   },
   module: {
