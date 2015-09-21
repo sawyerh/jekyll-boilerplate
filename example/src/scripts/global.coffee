@@ -7,7 +7,7 @@ require('expose?$!jquery')
 require('script!./plugins/plugin')
 
 # Load a custom module and execute it
-require('./components/component')()
+require('./modules/common-js')()
 
 # This variable was scoped to the window from component.coffee ^
 console.log "Hello from global.coffee"
