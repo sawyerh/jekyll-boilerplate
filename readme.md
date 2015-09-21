@@ -28,11 +28,11 @@ Bower makes fetching and installing packages from all over the web easier. If yo
 
 ## Grunt
 
-Grunt is our task runner. From the command line we can run a few different commands to do different things:
+Grunt is our task runner. From the command line we can run a few different commands:
 
 Watch for changes and build our assets when any file changes:
 
-A "build" includes compiling Sass to CSS and running Webpack, which compiles our CoffeeScript to JS and bundles our files.
+A "build" includes compiling Sass to CSS and running Webpack, which compiles our CoffeeScript to JS, transforms our ES6 syntax, and bundles our files.
 
 ```
 grunt

@@ -1,5 +1,5 @@
 # This plugin will only be included once if it's require()'ed from multiple components:
-require('script!../js/plugin')
+require('script!../plugins/plugin')
 
 # Window scoped variables will still work outside of this script:
 window.componentName = 'Component'

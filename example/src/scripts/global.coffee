@@ -4,7 +4,7 @@ require('expose?$!jquery')
 
 # Executes a JavaScript file once in global context (like in script tag).
 # Requires are not parsed and the code is not minimized by webpack.
-require('script!./js/plugin')
+require('script!./plugins/plugin')
 
 # Load a custom module and execute it
 require('./components/component')()
