@@ -26,33 +26,48 @@ Bower makes fetching and installing packages from all over the web easier. If yo
 
 # Build Process
 
+**Building Production-ready assets**
+
+```
+npm run build
+```
+
+**While developing**:
+
+```
+npm run dev
+```
+
+This does two things:
+
+1. Watches for changes and fires Livereload
+2. Builds assets in "Development" mode. You'll see more helpful errors in the console and makes things generally easier to debug.
+
+To use Livereload, install the [Chrome or Safari extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-).
+
 ## Grunt
 
-Grunt is our task runner. From the command line we can run a few different commands:
+Grunt compiles our SASS for us.
 
-Watch for changes and build our assets when any file changes:
+The commands above run this for us, but you can also run just the `grunt` commands if you don't need JS compilation:
 
-A "build" includes compiling Sass to CSS and running Webpack, which compiles our CoffeeScript to JS, transforms our ES6 syntax, and bundles our files.
+**Watch and build SASS when a file changes**:
 
 ```
 grunt
 ```
 
-Run once and build our assets:
+**Build all SASS**:
 
 ```
 grunt build
 ```
 
-Or build certain asset groups:
-
-`grunt sass` or `grunt webpack` (our JS)
-
 ## Webpack
 
 Our primary use for webpack is the ability to use module systems like AMD and CommonJS, and make it easy for us to bundle our files. Webpack also does a lot of the same things as Grunt and my ultimate goal is to move to a Webpack only workflow.
 
-Webpack can be run on its own using the `webpack` CLI:
+Again, the `npm run` scripts mentioned above run Webpack for us, but it can also be ran on its own using the `webpack` CLI:
 
 Run once: `webpack`
 
