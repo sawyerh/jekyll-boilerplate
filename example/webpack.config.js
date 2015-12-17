@@ -1,7 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
 
-// This is pulled into Gruntfile.js however can be used on its own using just webpack:
 module.exports = {
   entry: {
     global:  './src/scripts/global.coffee',
