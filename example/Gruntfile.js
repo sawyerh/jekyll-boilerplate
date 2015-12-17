@@ -1,14 +1,8 @@
 module.exports = function(grunt) {
-  var webpack = require("webpack");
-  var webpackConfig = require("./webpack.config.js");
-
   // Load all grunt tasks we have installed:
   require("matchdep").filterAll("grunt-*").forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
-    webpack: {
-      app: webpackConfig
-    },
     sass: {
       dist: {
         options: {
@@ -26,8 +20,8 @@ module.exports = function(grunt) {
     watch: {
       app: {
         // Watch for any changes that happen within the src directory:
-        files: ["src/**/*"],
-        tasks: ["webpack"],
+        files: ["src/**/*.scss"],
+        tasks: ["sass"],
         options: { spawn: false }
       }
     }
@@ -37,5 +31,5 @@ module.exports = function(grunt) {
   grunt.registerTask("default", ["watch:app"]);
 
   // Simple webpack build task:
-  grunt.registerTask("build", ["webpack", "sass"]);
+  grunt.registerTask("build", ["sass"]);
 };

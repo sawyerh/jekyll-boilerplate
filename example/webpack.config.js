@@ -22,10 +22,28 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       },
       {
+        // Compiles .coffee mixed w/ React to .js files:
+        test: /\.cjsx$/,
+        loaders: ['coffee', 'cjsx'],
+        exclude: /(node_modules|bower_components)/
+      },
+      {
         // Enable ES6 features in .js files (Won't work for CoffeeScript due to its reserved words list)
         test: /\.js$/,
         loader: 'babel',
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['es2015']
+        }
+      },
+      {
+        // React
+        test: /\.jsx?$/,
+        loader: 'babel',
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['es2015', 'react']
+        }
       },
       {
         // Enable require() for .scss files (inlines in <head>...not sure how I feel about this yet):
@@ -41,17 +59,18 @@ module.exports = {
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ),
     // Minify our build output:
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    // Define proces.env.NODE_ENV so React strips debugging info from production build:
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': '"' + process.env.NODE_ENV + '"'
+      }
+    })
   ],
   resolve: {
     // Search in bower_components and src/styles too:
     root: [path.join(__dirname, "bower_components"), path.join(__dirname, "src/styles")],
     // Add .coffee to the list of extensions that should be used to resolve modules:
     extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee"]
-  },
-  stats: {
-    // Configure the console output
-    colors: true,
-    reasons: true
   }
 };
