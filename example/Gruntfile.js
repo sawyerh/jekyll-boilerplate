@@ -23,6 +23,13 @@ module.exports = function(grunt) {
         files: ["src/**/*.scss"],
         tasks: ["sass"],
         options: { spawn: false }
+      },
+      livereload: {
+        // Trigger LiveReload when a CSS/JS file is compiled
+        options: {
+          livereload: true
+        },
+        files: ['dist/**/*'],
       }
     }
   });

@@ -1,11 +1,8 @@
 var path = require("path");
 var webpack = require("webpack");
-
-module.exports = {
+var config = {
   entry: {
-    global:  './src/scripts/global.coffee',
-    item:    './src/scripts/item.coffee',
-    vanilla: './src/scripts/vanilla.js'
+    example: './src/scripts/example.js'
   },
   output: {
     path: './dist/scripts',
@@ -14,18 +11,6 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        // Compiles .coffee to .js files:
-        test: /\.coffee$/,
-        loader: 'coffee',
-        exclude: /(node_modules|bower_components)/
-      },
-      {
-        // Compiles .coffee mixed w/ React to .js files:
-        test: /\.cjsx$/,
-        loaders: ['coffee', 'cjsx'],
-        exclude: /(node_modules|bower_components)/
-      },
       {
         // Enable ES6 features in .js files (Won't work for CoffeeScript due to its reserved words list)
         test: /\.js$/,
@@ -53,12 +38,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // use the main field from the bower.json file
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    ),
-    // Minify our build output:
-    new webpack.optimize.UglifyJsPlugin(),
     // Define proces.env.NODE_ENV so React strips debugging info from production build:
     new webpack.DefinePlugin({
       'process.env': {
@@ -68,8 +47,16 @@ module.exports = {
   ],
   resolve: {
     // Search in bower_components and src/styles too:
-    root: [path.join(__dirname, "bower_components"), path.join(__dirname, "src/styles")],
-    // Add .coffee to the list of extensions that should be used to resolve modules:
-    extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee"]
+    root: [path.join(__dirname, "src/styles")],
+    // Add .jsx to the list of extensions that should be used to resolve modules:
+    extensions: ["", ".js", ".jsx"]
   }
 };
+
+if(process.env.NODE_ENV === 'production'){
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: { warnings: false }
+  }));
+}
+
+module.exports = config;

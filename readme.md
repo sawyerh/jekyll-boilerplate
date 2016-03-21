@@ -11,7 +11,7 @@ Then install the following...
 **[Grunt](http://gruntjs.com/): our task runner**
 
 ```
-npm install -g grunt-cli
+npm install grunt-cli -g
 ```
 
 **[Webpack](http://webpack.github.io/): our module bundler**
@@ -19,10 +19,6 @@ npm install -g grunt-cli
 ```
 npm install webpack -g
 ```
-
-**[Bower](http://bower.io/): our package manager for the web** (*Optional*)
-
-Bower makes fetching and installing packages from all over the web easier. If your project has a `bower.json` (like our example), run: `bower install`
 
 # Build Process
 
@@ -47,11 +43,11 @@ To use Livereload, install the [Chrome or Safari extension](http://feedback.live
 
 ## Grunt
 
-Grunt compiles our SASS for us.
+Grunt compiles our Sass for us.
 
-The commands above run this for us, but you can also run just the `grunt` commands if you don't need JS compilation:
+The commands above run this for us, but you can also run just the `grunt` commands if you don't need JS bundling:
 
-**Watch and build SASS when a file changes**:
+**Watch and build Sass when a file changes**:
 
 ```
 grunt
@@ -65,7 +61,7 @@ grunt build
 
 ## Webpack
 
-Our primary use for webpack is the ability to use module systems like AMD and CommonJS, and make it easy for us to bundle our files. Webpack also does a lot of the same things as Grunt and my ultimate goal is to move to a Webpack only workflow.
+I use Webpack to transform and bundle the JavaScript. This allows you to use ES6 syntax and `require` or `import` modules.
 
 Again, the `npm run` scripts mentioned above run Webpack for us, but it can also be ran on its own using the `webpack` CLI:
 
@@ -81,3 +77,13 @@ Run and watch for changes (plus prettier output): `webpack --progress --colors -
 - [CLI docs](http://webpack.github.io/docs/cli.html)
 - [webpack-howto](https://github.com/petehunt/webpack-howto)
 - [Webpack + Grunt example](https://github.com/webpack/webpack-with-common-libs)
+
+## Jest
+
+[Jest](http://facebook.github.io/jest/) is used for JavaScript unit testing. See the example project for a quick test example.
+
+To run the tests:
+
+```
+npm run test
+```
