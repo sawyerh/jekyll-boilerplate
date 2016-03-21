@@ -12,28 +12,13 @@ var config = {
   module: {
     loaders: [
       {
-        // Enable ES6 features in .js files (Won't work for CoffeeScript due to its reserved words list)
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /(node_modules|bower_components)/,
-        query: {
-          presets: ['es2015']
-        }
-      },
-      {
         // React
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)?$/,
         loader: 'babel',
         exclude: /(node_modules|bower_components)/,
         query: {
           presets: ['es2015', 'react']
         }
-      },
-      {
-        // Enable require() for .scss files (inlines in <head>...not sure how I feel about this yet):
-        test: /\.scss$/,
-        loader: 'style!css!sass',
-        exclude: /(node_modules|bower_components)/
       }
     ]
   },
@@ -46,8 +31,6 @@ var config = {
     })
   ],
   resolve: {
-    // Search in bower_components and src/styles too:
-    root: [path.join(__dirname, "src/styles")],
     // Add .jsx to the list of extensions that should be used to resolve modules:
     extensions: ["", ".js", ".jsx"]
   }
