@@ -10,7 +10,6 @@ module.exports = function(grunt) {
           bundleExec: true,
           colorizeOutput: true,
           config: '.scss-lint.yml',
-          exclude: ['assets/styles/app.scss', 'assets/styles/utils/_fonts.scss', 'assets/styles/utils/_mixins.scss', 'assets/styles/utils/_reset.scss', 'assets/styles/utils/_variables.scss'],
           force: true
         }
       }
