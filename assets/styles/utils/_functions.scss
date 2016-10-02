@@ -1,0 +1,5 @@
+@import 'variables';
+
+@function em($pixels, $context: $font-size--body) {
+  @return ($pixels / $context) * 1em;
+}

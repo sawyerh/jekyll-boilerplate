@@ -1,0 +1,29 @@
+exclude:
+  - 'assets/styles/utils/**'
+  - 'assets/styles/app.scss'
+linters:
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: false
+  Indentation:
+    enabled: false
+  FinalNewline:
+    enabled: false
+  HexNotation:
+    enabled: false
+  LeadingZero:
+    enabled: false
+  MergeableSelector:
+    enabled: true
+    force_nesting: false
+  NameFormat:
+    enabled: false
+  PlaceholderInExtend:
+    enabled: false
+  PropertySortOrder:
+    enabled: false
+  PseudoElement:
+    enabled: false
+  SelectorFormat:
+    enabled: false

@@ -1,23 +1,13 @@
 # Installation
 
-First install all dependencies:
-
 ```
 npm install
 ```
 
-Then install the following...
-
-**[Grunt](http://gruntjs.com/): our task runner**
+and
 
 ```
-npm install grunt-cli -g
-```
-
-**[Webpack](http://webpack.github.io/): our module bundler**
-
-```
-npm install webpack -g
+bundle install
 ```
 
 # Build Process
@@ -43,35 +33,13 @@ To use Livereload, install the [Chrome or Safari extension](http://feedback.live
 
 ## Grunt
 
-Grunt compiles our Sass for us.
+Grunt watches for changes and lints our `.scss` files for us.
 
 The commands above run this for us, but you can also run just the `grunt` commands if you don't need JS bundling:
-
-**Watch and build Sass when a file changes**:
-
-```
-grunt
-```
-
-**Build all SASS**:
-
-```
-grunt build
-```
 
 ## Webpack
 
 I use Webpack to transform and bundle the JavaScript. This allows you to use ES6 syntax and `require` or `import` modules.
-
-Again, the `npm run` scripts mentioned above run Webpack for us, but it can also be ran on its own using the `webpack` CLI:
-
-Run once: `webpack`
-
-Run and compress output: `webpack -p`
-
-Run and output with source-maps: `webpack -d`
-
-Run and watch for changes (plus prettier output): `webpack --progress --colors --watch`
 
 **Additional Webpack resources:**
 - [CLI docs](http://webpack.github.io/docs/cli.html)
@@ -85,5 +53,5 @@ Run and watch for changes (plus prettier output): `webpack --progress --colors -
 To run the tests:
 
 ```
-npm run test
+npm test
 ```

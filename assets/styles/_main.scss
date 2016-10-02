@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $font-size--body;
+  margin: $v*1;
+}
