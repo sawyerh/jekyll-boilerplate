@@ -1,0 +1,14 @@
+html {
+  font-size: 10px; // 1rem = 10px
+}
+
+body {
+  font-size: $font-size--body;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: $font-family--sans;
+}

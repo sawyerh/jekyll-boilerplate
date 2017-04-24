@@ -1,18 +1,19 @@
 module.exports = {
-    "extends": ["eslint:recommended"],
+    "extends": ["nava"],
     "env": {
       "browser": true,
-      "commonjs": true,
-      "es6": true
-    },
-    "globals": {
+      "es6": true,
+      "jest": true
     },
     "rules": {
       "camelcase": 0,
       "no-console": 0,
       "no-lonely-if": 2
     },
-    parserOptions: {
-      sourceType: "module"
-    }
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "sourceType": "module"
+    },
 };

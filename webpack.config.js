@@ -1,42 +1,34 @@
-var path = require("path");
-var webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 
-var config = {
-  entry: {
-    app: './assets/scripts/src/app.js'
-  },
-  eslint: {
-    configFile: path.join(__dirname, ".eslintrc.js")
-  },
+let config = {
+  context: __dirname,
+  entry: ['./assets/src/scripts/app.js'],
   output: {
-    path: './assets/scripts/dist',
-    filename: '[name].js'
+    path: __dirname,
+    publicPath: '/',
+    filename: 'assets/dist/scripts/app.js'
   },
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /(node_modules)/
-      }
-    ],
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: "eslint-loader",
-        exclude: /(node_modules)/
+        test: /\.(js|jsx)$/,
+        loader: ['babel-loader'],
+        include: [path.resolve(__dirname, 'assets/src/scripts')]
       }
     ]
-  },
-  resolve: {
-    extensions: ["", ".js", ".jsx"]
   }
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins = [new webpack.optimize.UglifyJsPlugin({
-    compress: { warnings: false }
-  })];
+  const uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      drop_console: true,
+      warnings: false
+    }
+  });
+
+  config.plugins = [uglifyPlugin];
 }
 
 module.exports = config;

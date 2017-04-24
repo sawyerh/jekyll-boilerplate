@@ -3,17 +3,15 @@ title: Jekyll boilerplate
 timezone: America/New_York
 permalink: pretty
 exclude:
-- Gruntfile.js
-- webpack.config.js
-- Gemfile.lock
+- "*.config"
+- assets/src
+- ".gitignore"
+- Gulpfile.js
+- node_modules
 - package.json
 - README*
-- node_modules
-- ".gitignore"
-- assets/scripts/src
+- tools/
+- webpack.config.js
 gems:
 - jekyll-seo-tag
 - jekyll-sitemap
-sass:
-  sass_dir: assets/styles/
-  style: compressed
