@@ -14,7 +14,7 @@
     "eslint-config-nava": "^1.0.0",
     "eslint-loader": "^1.5.0",
     "gulp": "^3.9.1",
-    "gulp-changed": "^3.0.0",
+    "gulp-changed": "^3.1.0",
     "gulp-changed-in-place": "^2.2.0",
     "gulp-count": "^0.3.0",
     "gulp-eslint": "^3.0.1",
@@ -27,9 +27,9 @@
     "jest": "^19.0.2",
     "postcss-import": "^9.1.0",
     "stylelint": "^7.10.1",
-    "stylelint-order": "^0.4.3",
+    "stylelint-order": "^0.4.4",
     "stylelint-scss": "^1.4.4",
-    "webpack": "^2.4.1"
+    "webpack": "^2.5.0"
   },
   "name": "jekyll-boilerplate",
   "private": true,
