@@ -1,5 +1,3 @@
-'use strict';
-
 const autoprefixer = require('autoprefixer');
 const changed = require('gulp-changed');
 const count = require('gulp-count');
