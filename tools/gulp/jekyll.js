@@ -2,6 +2,15 @@ const childProcess = require('child_process');
 const jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 module.exports = (gulp, shared) => {
+  // Rebuild the site when changes are made
+  gulp.task('jekyll:watch', done => {
+    gulp.watch([
+      '_config.yml',
+      'assets/images/**/*',
+      '*.{md,html}' // Templates and content
+    ], ['jekyll:rebuild']);
+  });
+
   /**
    * Generate the static HTML pages. This can also be run from the command line
    * as `bundle exec jekyll build`.

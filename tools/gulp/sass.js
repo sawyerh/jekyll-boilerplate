@@ -8,18 +8,21 @@ const gulpIf = require('gulp-if');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
+const paths = {
+  dest: 'assets/dist/styles',
+  src: 'assets/src/styles/**/*.scss'
+};
+
 module.exports = (gulp, shared) => {
+  gulp.task('sass:watch', () => {
+    gulp.watch(paths.src, ['sass']);
+  });
+
   gulp.task('sass', () => {
     const createSourcemaps = shared.env === 'development';
-
-    const paths = {
-      dest: 'assets/dist/styles',
-      src: 'assets/src/styles/**/*.scss'
-    };
-
     const postcssPlugins = [
-      postcssImport(), // inline imports
-      autoprefixer()  // add any necessary vendor prefixes
+      autoprefixer(),  // add any necessary vendor prefixes
+      postcssImport()  // inline imports
     ];
 
     const sassCompiler = sass({
@@ -44,8 +47,9 @@ module.exports = (gulp, shared) => {
       .pipe(sassCompiler)
       .pipe(gulpIf(createSourcemaps, sourcemaps.write()))
       .pipe(postcss(postcssPlugins))
-      .pipe(gulp.dest(paths.dest))
+      .pipe(gulp.dest(`_site/${paths.dest}`))
       .pipe(count('## Sass files processed'))
-      .pipe(shared.browserSync.stream({match: '**/styles/*.css'})); // Auto-inject into docs
+      .pipe(shared.browserSync.stream({match: '**/styles/*.css'})) // Auto-inject into docs
+      .pipe(gulp.dest(paths.dest));
   });
 };

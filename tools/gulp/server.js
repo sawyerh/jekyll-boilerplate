@@ -5,7 +5,7 @@
 const argv = require('yargs').argv;
 
 module.exports = (gulp, shared) => {
-  gulp.task('server', ['build'], () => {
+  gulp.task('server:browsersync', ['build'], () => {
     shared.browserSync.init({
       notify: false,
       open: !argv.noopen,
@@ -14,4 +14,6 @@ module.exports = (gulp, shared) => {
       }
     });
   });
+
+  gulp.task('server', ['server:browsersync', 'jekyll:watch', 'sass:watch']);
 };
