@@ -7,7 +7,9 @@ module.exports = (gulp, shared) => {
     gulp.watch([
       '_config.yml',
       'assets/images/**/*',
-      '*.{md,html}' // Templates and content
+      '**/*.{md,html}', // Templates and content
+      '!node_modules/**/*',
+      '!_site/**/*'
     ], ['jekyll:rebuild']);
   });
 
