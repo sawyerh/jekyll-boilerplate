@@ -5,9 +5,8 @@ module.exports = (gulp, shared) => {
   // Rebuild the site when changes are made
   gulp.task('jekyll:watch', done => {
     gulp.watch([
-      '_config.yml',
       'assets/images/**/*',
-      '**/*.{md,html}', // Templates and content
+      '**/*.{md,html,yml}', // Templates and content
       '!node_modules/**/*',
       '!_site/**/*'
     ], ['jekyll:rebuild']);
