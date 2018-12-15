@@ -3,15 +3,15 @@ title: Jekyll boilerplate
 timezone: America/New_York
 permalink: pretty
 exclude:
-- "*.config"
-- assets/src
-- ".gitignore"
-- Gulpfile.js
-- node_modules
-- package.json
-- README*
-- tools/
-- webpack.config.js
-gems:
-- jekyll-seo-tag
-- jekyll-sitemap
+  - "*.config"
+  - assets/src
+  - ".gitignore"
+  - Gulpfile.js
+  - node_modules
+  - package.json
+  - README*
+  - tools/
+  - webpack.config.js
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
