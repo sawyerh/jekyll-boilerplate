@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "nava",
+    "plugin:jest/recommended",
+    "prettier",
+    "prettier/standard"
+  ],
+  "globals": {
+    "gtag": true
+  },
+  "plugins": ["jest"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "jest/consistent-test-it": ["error", { "fn": "it" }],
+    "sort-imports": "error"
+  }
+}

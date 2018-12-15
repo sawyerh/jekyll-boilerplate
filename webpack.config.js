@@ -1,34 +1,28 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
 
-let config = {
+const config = {
+  mode: process.env.NODE_ENV || "development",
   context: __dirname,
-  entry: ['./assets/src/scripts/app.js'],
+  entry: ["./assets/src/scripts/app.js"],
   output: {
     path: __dirname,
-    publicPath: '/',
-    filename: 'assets/dist/scripts/app.js'
+    publicPath: "/",
+    filename: "assets/dist/scripts/app.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.(js|jsx)$/,
-        loader: ['babel-loader'],
-        include: [path.resolve(__dirname, 'assets/src/scripts')]
+        test: /\.js$/,
+        include: [path.resolve(__dirname, "assets/src/scripts")],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
       }
     ]
   }
 };
-
-if (process.env.NODE_ENV === 'production') {
-  const uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      drop_console: true,
-      warnings: false
-    }
-  });
-
-  config.plugins = [uglifyPlugin];
-}
 
 module.exports = config;

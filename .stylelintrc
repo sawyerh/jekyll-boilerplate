@@ -1,0 +1,6 @@
+{
+  "extends": ["@cmsgov/stylelint-config-design-system", "stylelint-config-prettier"],
+  "rules": {
+    "declaration-bang-space-before": null
+  }
+}

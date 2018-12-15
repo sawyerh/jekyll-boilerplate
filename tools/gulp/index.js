@@ -3,21 +3,16 @@
  * needs shared between task groups, add it to the `shared` object, which
  * gets passed to each task group function.
  */
-const argv = require('yargs').argv;
+const argv = require("yargs").argv;
 
-module.exports = (gulp) => {
+module.exports = gulp => {
   const shared = {
-    browserSync: require('browser-sync').create(),
+    browserSync: require("browser-sync").create(),
     env: argv.env
   };
 
-  [
-    'build',
-    'lint',
-    'jekyll',
-    'sass',
-    'server'
-  ].forEach(taskGroup => {
-    require(`./${taskGroup}.js`)(gulp, shared);
-  });
+  require(`./jekyll`)(gulp, shared);
+  require(`./sass`)(gulp, shared);
+  require(`./build`)(gulp, shared);
+  require(`./server`)(gulp, shared);
 };

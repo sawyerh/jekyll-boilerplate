@@ -1,12 +1,8 @@
 {
   "env": {
     "test": {
-      "presets": [
-        "jest"
-      ]
+      "presets": ["jest"]
     }
   },
-  "presets": [
-    "es2015"
-  ]
+  "presets": ["@babel/env"]
 }
