@@ -11,13 +11,14 @@ This repo includes a boilerplate for getting started working on a new Jekyll web
 
 # Prerequisites
 
+- **Git** - This boilerplate uses the `github-pages` gem, which expects a Git repo to be configured locally
 - Node 10.x +
 - Ruby 2.4.x +
 
 # Installation
 
 ```
-npm install && bundle install
+npm install
 ```
 
 # Usage
