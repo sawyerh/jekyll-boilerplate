@@ -24,7 +24,7 @@ npm install && bundle install
 
 ### Local development
 
-You can run a local Jekyll server and enjoy live reloading by running the following:
+Run a local Jekyll server and enjoy live reloading:
 
 ```
 npm start
@@ -32,7 +32,7 @@ npm start
 
 ### Building production-ready assets
 
-To transpile and bundle Sass and JS, run the following:
+To transpile and bundle Sass and JS, and build the site:
 
 ```
 npm run build
