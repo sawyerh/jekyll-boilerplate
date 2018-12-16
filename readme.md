@@ -11,6 +11,8 @@ This repo includes a boilerplate for getting started working on a new Jekyll web
 
 # Prerequisites
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sawyerh/jekyll-boilerplate.svg)](https://greenkeeper.io/)
+
 - **Git** - This boilerplate uses the `github-pages` gem, which expects a Git repo to be configured locally
 - Node 10.x +
 - Ruby 2.4.x +
